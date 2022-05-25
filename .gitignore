@@ -1,0 +1,11 @@
+/project/db-data
+/uts/uts-cli/target
+
+
+utsApp
+
+
+*.exe
+
+
+*.bin

@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  uts-service:
+    build:
+      context: ./../uts
+      dockerfile: ./../uts/uts.dockerfile
+    restart: always
+    ports:
+      - "8080:80"
+    deploy:
+      mode: replicated
+      replicas: 1
+  
+  postgres:
+    image: 'postgres:14.2'
+    ports:
+      - "5432:5432"
+    deploy:
+      mode: replicated
+      replicas: 1
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: fibonachi
+      POSTGRES_DB: apps
+    volumes:
+      - ./db-data/postgres/:/var/lib/postgresql/data/
