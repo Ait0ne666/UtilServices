@@ -1,11 +1,14 @@
 /project/db-data
-/uts/uts-cli/target
-
+/uts-broker/uts-cli/target
+/uts-broker/target
+/auth-service/target
 
 utsApp
 
 
 *.exe
+
+*/target
 
 
 *.bin

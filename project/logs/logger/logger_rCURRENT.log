@@ -1,0 +1,42 @@
+WARN [logger_service::file_logger::logger] [30-05-2022 12:33:49]-WARNING
+App: logger
+Message: There was a crazy error
+WARN [logger_service::file_logger::logger] [30-05-2022 12:33:53]-WARNING
+App: logger
+Message: There was a crazy error
+WARN [logger_service::file_logger::logger] [30-05-2022 12:33:58]-WARNING
+App: logger
+Message: There was a crazy error
+WARN [logger_service::file_logger::logger] [30-05-2022 12:40:24]-WARNING
+App: logger
+Message: There was a crazy error
+WARN [logger_service::file_logger::logger] [30-05-2022 12:40:26]-WARNING
+App: logger
+Message: There was a crazy error
+WARN [logger_service::file_logger::logger] [30-05-2022 12:40:41]-WARNING
+App: logger
+Message: There was a crazy error
+WARN [logger_service::file_logger::logger] [30-05-2022 12:59:05]-WARNING
+App: logger
+Message: There was a crazy error
+WARN [logger_service::file_logger::logger] [30-05-2022 12:59:09]-WARNING
+App: logger
+Message: There was a crazy error
+WARN [logger_service::file_logger::logger] [30-05-2022 12:59:11]-WARNING
+App: logger
+Message: There was a crazy error
+WARN [logger_service::file_logger::logger] [31-05-2022 04:27:23]-WARNING
+App: logger
+Message: There was a crazy error
+WARN [logger_service::file_logger::logger] [31-05-2022 04:27:28]-WARNING
+App: logger
+Message: There was a crazy error
+WARN [logger_service::file_logger::logger] [31-05-2022 04:41:19]-WARNING
+App: logger
+Message: There was a crazy error
+WARN [logger_service::file_logger::logger] [31-05-2022 08:30:14]-WARNING
+App: logger
+Message: There was a crazy error
+WARN [logger_service::file_logger::logger] [31-05-2022 08:30:51]-WARNING
+App: logger
+Message: There was a crazy error

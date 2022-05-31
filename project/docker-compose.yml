@@ -1,16 +1,42 @@
 version: '3'
 
 services:
-  uts-service:
+  auth-service:
     build:
-      context: ./../uts
-      dockerfile: ./../uts/uts.dockerfile
+      context: ./../auth-service
+      dockerfile: ./../auth-service/auth-service.dockerfile
     restart: always
     ports:
-      - "8080:80"
+      - "50051:50051"
     deploy:
       mode: replicated
       replicas: 1
+
+  logger-service:
+    build:
+      context: ./../logger-service
+      dockerfile: ./../logger-service/logger-service.dockerfile
+    restart: always
+    ports:
+      - "50052:50051"
+    deploy:
+      mode: replicated
+      replicas: 1
+    volumes:
+      - ./logs/:/app/logs
+
+  uts-broker:
+    build:
+      context: ./../uts-broker
+      dockerfile: ./../uts-broker/broker-service.dockerfile
+    restart: always
+    ports:
+      - "3001:3000"
+    deploy:
+      mode: replicated
+      replicas: 1
+    expose:
+      - "3000"
   
   postgres:
     image: 'postgres:14.2'

@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package auth;
+
+
+message App{
+  int32 id = 1;
+  string title = 2;
+  optional string telegram_chat_id = 3;
+  string token = 4;
+  repeated string loggers = 5;
+}
+
+
+
+message AuthRequest {
+  string token  = 1;
+}
+
+message AuthResponse {
+  bool authenticated = 1;
+  optional App app = 2;
+}
+
+service AuthGRPCService {
+  rpc Authenticate(AuthRequest) returns (AuthResponse);
+}

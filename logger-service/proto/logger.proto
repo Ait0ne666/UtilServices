@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package logger;
+
+
+message App{
+  int32 id = 1;
+  string title = 2;
+  optional string telegram_chat_id = 3;
+  string token = 4;
+  repeated string loggers = 5;
+}
+
+
+
+message LoggerRequest {
+  App app  = 1;
+  string message = 2;
+  string severity = 3;
+}
+
+message LoggerResponse {
+  bool error = 1;
+}
+
+service LoggerGRPCService {
+  rpc Log(LoggerRequest) returns (LoggerResponse);
+}

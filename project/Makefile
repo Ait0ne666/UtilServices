@@ -2,7 +2,7 @@ SHELL=cmd.exe
 UTS_BINARY=utsApp
 
 
-run_build:	build_uts 
+run_build:	
 	@echo Stopping docker images (if running...)
 	docker-compose down
 	@echo Building (when required) and starting docker images...
@@ -10,10 +10,7 @@ run_build:	build_uts
 	@echo Docker images built and started!
 
 
-build_uts:
-	@echo Building uts binary...
-	chdir ..\uts && set GOOS=linux&& set GOARCH=amd64&& set CGO_ENABLED=0 && go build -o ${UTS_BINARY} ./cmd/uts
-	@echo Done!
+
 
 build_cli:
 	@echo Building cli binary...
@@ -22,5 +19,5 @@ build_cli:
 
 down:
 	@echo Stopping docker compose...
-	docker-compose -p uts down
+	docker-compose -p uts down --remove-orphans
 	@echo Done!
