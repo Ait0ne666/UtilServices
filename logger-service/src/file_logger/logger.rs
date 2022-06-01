@@ -37,12 +37,12 @@ impl FileLogger {
                     .basename(app.title)
                     .directory(format!("./logs/{}", t)),
             )
+            .append()
             .rotate(
                 Criterion::Age(Age::Day), 
                 Naming::Timestamps,
                 flexi_logger::Cleanup::Never,
             )
-            .append(),
         );
 
 

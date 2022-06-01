@@ -40,3 +40,9 @@ Message: There was a crazy error
 WARN [logger_service::file_logger::logger] [31-05-2022 08:30:51]-WARNING
 App: logger
 Message: There was a crazy error
+WARN [logger_service::file_logger::logger] [01-06-2022 05:42:56]-WARNING
+App: logger
+Message: There was a crazy error
+WARN [logger_service::file_logger::logger] [01-06-2022 09:57:06]-WARNING
+App: logger
+Message: There was a crazy error

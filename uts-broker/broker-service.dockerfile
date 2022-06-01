@@ -21,20 +21,46 @@ RUN echo "fn main() {println!(\"if you see this, the build broke\")}" > src/main
 
 RUN cargo build --release
 
-# RUN rm -f app/target/release/deps/uts-broker*
-
 
 
 COPY  . /app
 
 RUN cargo build --release
 
-RUN cargo install --path ./uts-cli
+RUN cd ./uts-cli
+
+RUN cargo build --release
+
+
+
+FROM rust:1.61 AS App_Builder
+SHELL ["/bin/bash", "-c"]
+
+RUN mkdir /app
+
+
+WORKDIR /app
+
+RUN mkdir /cli
+
+COPY --from=Cli_Builder /app/target/release/uts-broker /app
+COPY --from=Cli_Builder /app/uts-cli/ /app/cli
+
+
+
+
+RUN cargo install --path ./cli
+
+
+RUN rm -r -f /cli/
+
 
 ENV DATABASE_URL=postgres://postgres:fibonachi@postgres:5432/apps
 ENV HASH=sklaeoekkdsasa
 ENV APP_MODE=PRODUCTION
-CMD ["/app/target/release/uts-broker"]
+
+CMD ["/app/uts-broker"]
+
 
 
 

@@ -1,7 +1,12 @@
 #[macro_use] extern crate diesel;
+#[macro_use] extern crate diesel_migrations;
 extern crate dotenv;
 
+use diesel_migrations::embed_migrations;
 
+
+
+embed_migrations!("./migrations/");
 
 
 mod database;
@@ -60,6 +65,18 @@ fn main() {
     let cli = Cli::parse();
 
     let conn = establish_connection();
+
+    let res = embedded_migrations::run(&conn);
+
+
+    match res {
+        Ok(_) => {
+            println!("Migrations run successfully");
+        },
+        Err(e) => {
+            println!("Error running migrations:\n{}", e);
+        },
+    }
 
     let app_repository = AppRepository::new(&conn);
 

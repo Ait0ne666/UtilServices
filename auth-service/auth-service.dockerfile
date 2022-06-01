@@ -30,11 +30,24 @@ COPY  . /app
 
 RUN cargo build --release
 
+
+
+
+FROM rust:1.61 AS App_Builder
+SHELL ["/bin/bash", "-c"]
+
+RUN mkdir /app
+
+WORKDIR /app
+
+COPY --from=Cli_Builder /app/target/release/auth-service /app
+
+
 ENV DATABASE_URL=postgres://postgres:fibonachi@postgres:5432/apps
 ENV HASH=sklaeoekkdsasa
 ENV APP_MODE=PRODUCTION
 
-CMD ["/app/target/release/auth-service"]
+CMD ["/app/auth-service"]
 
 
 
